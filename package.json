@@ -1,0 +1,16 @@
+{
+	"name": "Awesome-Multi-User-Chat",
+	"description": "Ukážková real-time webová aplikácia s využitím Socket.IO pre bakalársku prácu Real-time webové aplikácie.",
+	"version": "1.0.0",
+	"author": "Matej Paulech <matej.paulech@gmail.com>",
+	"private": true,
+	"main": "app",
+	"dependencies": {
+		"express": "2.5.8",
+		"ejs": "0.7.1",
+		"socket.io": "0.9"
+	},
+	"engine": {
+    "node": ">= 0.4.x"
+  }
+}

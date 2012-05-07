@@ -1,0 +1,135 @@
+<!--
+	Awesome Multi User Chat
+
+	Ukážková real-time webová aplikácia pre bakalársku prácu s témou real-time webové aplikácie.
+
+	Jedná sa o chat s jednou miestnosťou pre viacero užívateľov.
+	Medzi podporované funkcie patrí - posielanie verejných a privátnych správ, zmena nicku.
+
+	Šablónu vytvoril: Matej Paulech <matej.paulech@gmail.com> v spolupráci s Radovan Paulech
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title><%= title %></title>
+
+		<script src="javascripts/jquery-1.7.2.min.js" type="text/javascript"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="javascripts/utils.js" type="text/javascript"></script>
+		<script src="javascripts/chat.js" type="text/javascript"></script>
+		<script src="javascripts/app.js" type="text/javascript"></script>
+
+		<link href="stylesheets/style.css" rel="stylesheet" type="text/css"/>
+	</head>
+
+	<body>
+		<!-- CONTAINER -->
+		<div id="container">
+			
+			<!-- WRAP (border) -->
+			<div id="wrap">
+
+				<table id="main-table">
+					<tr>
+						<td id="title-holder"><h1><%= title %></h1></td>
+					</tr>
+
+					<tr>
+						<!-- LOGIN BOX -->
+						<td id="login_box_wrap">
+							<div id="login_box" class="box-layout">
+								<h2>Pripojenie sa do chatu</h2>
+
+								<form name="login_form" id="login_form">
+									<label for="nickname">Zadaj svoju prezývku:</label>
+									<input type="text" name="nickname" id="nickname" autofocus />
+
+									<input type="submit" value="Pripojiť sa!" />
+								</form>
+							</div>
+						</td>
+						<!-- / LOGIN BOX -->
+
+						<!-- CHAT BOX -->
+						<td id="chat_box" class="box-layout" style="display: none">				
+							<!-- CHAT WINDOW -->
+							<table id="chat-window">
+								<tr>
+									<!-- MESSAGES -->
+									<td id="messages">
+										<div id="message-list-box">
+											<div id="message-list-wrap">
+												<div id="message-list"></div>
+											</div>
+										</div>
+									</td>
+									<!-- / MESSAGES -->
+
+									<!-- USERS -->
+									<td id="users">
+										<h2>Chatujúci:</h2>
+										<ul></ul>
+									</td>
+									<!-- / USERS -->
+								</tr>
+
+								<tr>
+									<!-- MSG FORM -->
+									<td id="form" colspan="2">
+										<form name="chat_form">
+											<table class="flexi">
+												<tr>
+													<td id="send-to-wrap">
+														<label for="send-to">Komu:</label>
+														<select name="send_to" id="send-to"></select>
+													</td>
+
+													<td>
+														<input name="new_msg" id="new-msg" type="text" placeholder="nová správa" />
+													</td>
+													
+													<td id="send-form-wrap">
+														<input name="send_msg_form" type="submit" value="Odoslať" />
+													</td>
+												</tr>
+											</table>
+
+											<div id="new-nick-wrap">
+												<label for="new-nick">Tvoj aktuálny nick je:</label>
+												<input name="new_nick" id="new-nick" type="text" title="Zmeniť nick" readonly/>
+											</div>
+
+											<!-- <div class="checkboxes">
+												<label>
+													<input type="checkbox" name="" value="1" checked />
+													Zobrazovať polohu myšky pripojených užívateľov
+												</label>
+												<br/>
+
+												<label>
+													<input type="checkbox" name="" value="1" checked />
+													Posielať polohu myšky ostatným užívateľom
+												</label>
+											</div> -->
+										</form>
+									</td>
+									<!-- / MSG FORM -->
+								</tr>
+
+							</table>
+							<!-- / CHAT WINDOW -->
+						</td>
+						<!-- / CHAT BOX -->
+					</tr>
+
+				</table>
+
+			</div>
+			<!-- / WRAP -->
+
+		</div>
+		<!-- / CONTAINER -->
+	</body>
+</html>
